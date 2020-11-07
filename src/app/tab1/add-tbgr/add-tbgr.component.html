@@ -1,0 +1,63 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Add TBGR</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- <ion-item>
+            <ion-label position="floating">Division Name</ion-label>
+            <ion-input type="text"  [(ngModel)]="newTbgr.board" ></ion-input>
+          </ion-item> -->
+          <ion-item>
+            <div>
+              <mat-form-field class="board" appearance="fill">
+                <mat-label>Division</mat-label>
+                <mat-select [(ngModel)]="newTbgr.board" name="board">
+                  <mat-option *ngFor="let board of Boards" [value]="board.boardname">
+                    {{board.boardname}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label position="floating">Village Name</ion-label>
+            <ion-input type="text"  [(ngModel)]="newTbgr.village" ></ion-input>
+          </ion-item> -->
+          <ion-item>
+            <div>
+              <mat-form-field class="village" appearance="fill">
+                <mat-label>Village/Town</mat-label>
+                <mat-select [(ngModel)]="newTbgr.village" name="village">
+                  <mat-option *ngFor="let village of Villages"  [value]="village.villagename">
+                    {{village.villagename}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Tbgr No</ion-label>
+            <ion-input type="text" [(ngModel)]="newTbgr.tbgrno"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Grower Name</ion-label>
+            <ion-input type="text" [(ngModel)]="newTbgr.name"></ion-input>
+          </ion-item>
+          <div class="buttons">
+            <ion-button fill="outline" color="danger" (click)="OnRemove()">
+              <ion-icon slot="start" name="close-outline"></ion-icon>
+              Remove
+            </ion-button>
+            <ion-button (click)="addTbgrStore()">
+              <ion-icon slot="start" name="add-outline"></ion-icon>
+              Add TBGR
+            </ion-button>
+        </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

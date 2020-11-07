@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Data</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="4" offset-md="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Data Card</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <div>
+                <mat-form-field class="tbgrno" appearance="fill">
+                  <mat-label>TBGR NO</mat-label>
+                  <mat-select [(ngModel)]="selectedtbgr" name="food" required>
+                    <mat-option *ngFor="let tbgr of Tbgrs" [value]="tbgr.tbgrno">
+                      {{tbgr.tbgrno}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </ion-item>
+            <ion-item>
+              <div>
+                <mat-form-field class="grade" appearance="fill">
+                  <mat-label>Grade</mat-label>
+                  <mat-select [(ngModel)]="selectedGrade" name="grade">
+                    <mat-option *ngFor="let grade of Grades" [value]="grade.grade">
+                      {{grade.grade}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="4" offset-md="4">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Data</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Items Sold</ion-label>
+              <ion-input #weight type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Total Weight(Kg)</ion-label>
+              <ion-input #weight type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Sold Weight(Kg)</ion-label>
+              <ion-input #weight type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Remaining Weight(Kg)</ion-label>
+              <ion-input #weight type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Avg Price(Rupee)/Item</ion-label>
+              <ion-input #price type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Avg Weight(Kg)/Item</ion-label>
+              <ion-input #weight type="text"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

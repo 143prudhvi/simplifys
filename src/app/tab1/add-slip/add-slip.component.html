@@ -1,0 +1,71 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Tobacco Card</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating">DD/MMM/YYYY</ion-label>
+            <ion-datetime displayFormat="DD/MMM/YYYY" min="2020-03-14" max="2030-12-09" value="2020-09-23T15:03:46.789" [(ngModel)]="newSlip.date"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <div>
+              <mat-form-field class="tbgrno" appearance="fill">
+                <mat-label>TBGR NO</mat-label>
+                <mat-select [(ngModel)]="newSlip.tbgrno" name="tbgr">
+                  <mat-option *ngFor="let tbgr of Tbgrs" [value]="tbgr.tbgrno">
+                    {{tbgr.tbgrno}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ion-item>
+          <ion-item>
+            <div>
+              <mat-form-field class="grade" appearance="fill">
+                <mat-label>Grade</mat-label>
+                <mat-select [(ngModel)]="newSlip.grade" name="grade">
+                  <mat-option *ngFor="let grade of Grades" [value]="grade.grade">
+                    {{grade.grade}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-label position="floating">Tbgr No</ion-label>
+            <ion-input  type="text" [(ngModel)]="newSlip.tbgrno"></ion-input>
+          </ion-item> -->
+          <!-- <ion-item>
+            <ion-label position="floating">Grade</ion-label>
+            <ion-input  type="text" [(ngModel)]="newSlip.grade"></ion-input>
+          </ion-item> -->
+          <ion-item>
+            <ion-label position="floating">LOT NO.</ion-label>
+            <ion-input  type="text" [(ngModel)]="newSlip.lotno"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Enter Weight(Kg)</ion-label>
+            <ion-input type="text" [(ngModel)]="newSlip.weight"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Enter Price(Rupee)</ion-label>
+            <ion-input  type="text" [(ngModel)]="newSlip.price"></ion-input>
+          </ion-item>
+          <div class="buttons">
+            <ion-button fill="outline" color="danger" (click)="OnSlipClear()">
+              <ion-icon slot="start" name="close-outline"></ion-icon>
+              Clear
+            </ion-button>
+            <ion-button (click)="addSlip()">
+              <ion-icon slot="start" name="add-outline"></ion-icon>
+              Add Card
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

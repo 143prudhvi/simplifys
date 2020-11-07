@@ -1,0 +1,27 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-searchbar (ionInput) = "applyFilter($event)" mode="ios" placeholder="Filter by TBGR" show-cancel-button="focus" cancel-button-text="clear"></ion-searchbar>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <mat-accordion>
+        <mat-expansion-panel  *ngFor = "let slip of filteredSlips" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              TBGR No : {{slip.tbgrno}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Lot No : {{slip.lotno}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>Grade : {{slip.grade}}</p>
+          <p>Weight : {{slip.weight}}</p>
+          <p>Price : {{slip.price}}</p>
+          <p>Cost : {{slip.weight*slip.price}}</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </ion-col>
+  </ion-row>
+</ion-grid>

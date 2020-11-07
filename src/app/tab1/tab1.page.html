@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Simplify</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<super-tabs activeTabIndex="1">
+  <super-tabs-toolbar slot="top" scrollable="false" scrollable-padding="false">
+    <super-tab-button>
+      <ion-label>Add TBGR</ion-label>    
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>Add Slip</ion-label>    
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>View Slips</ion-label>    
+    </super-tab-button>
+  </super-tabs-toolbar>
+  <super-tabs-container>
+
+
+    
+    <super-tab>
+      <ion-content>
+        <app-add-tbgr></app-add-tbgr>
+      </ion-content>
+    </super-tab>
+    
+
+
+    <super-tab>
+      <ion-content>
+        <app-add-slip></app-add-slip>
+      </ion-content>
+    </super-tab>
+
+
+    <super-tab>
+      <ion-content>
+        <app-view-slips></app-view-slips>
+      </ion-content>
+    </super-tab>
+
+
+  </super-tabs-container>
+</super-tabs>
