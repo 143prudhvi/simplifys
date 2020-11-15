@@ -1,4 +1,4 @@
-import { BoardState, VillageState, GradeState, ContactState } from '../reducers/root.reducer';
+import { BoardState, VillageState, GradeState, ContactState, DataState } from '../reducers/root.reducer';
 import { SlipState, TbgrState} from '../reducers/slip.reducer';
 
 
@@ -12,4 +12,5 @@ export interface rootInterfaceState{
     readonly village : VillageState,
     readonly grade : GradeState,
     readonly contact : ContactState,
+    readonly data : DataState
 };

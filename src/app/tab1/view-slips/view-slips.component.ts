@@ -28,11 +28,11 @@ export class ViewSlipsComponent implements OnInit {
   ngOnInit() {
   }
 
-  applyFilter(filterValue: any){
+  applyFilter(filterValue:any){
     const val = filterValue.target.value;
     if(val && val.trim() != ''){
       this.filteredSlips = [...this.Viewslips.filter((slip) =>{
-        return (slip.tbgrno.toLowerCase().indexOf(val.toLowerCase())>-1);
+        return (slip.tbgr==val);
       })]
     }
     else{

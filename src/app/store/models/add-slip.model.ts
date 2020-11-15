@@ -1,8 +1,8 @@
 export interface Slip{
     date:string,
-    tbgrno:string;
+    tbgr:number;
     grade:string;
-    lotno:string;
+    lotno:number;
     weight:number;
     price:number;
 }

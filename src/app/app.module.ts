@@ -20,7 +20,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { SlipEffects } from './store/effects/slip.effects';
-import { GradeReducer, BoardReducer, VillageReducer, ContactReducer } from './store/reducers/root.reducer';
+import { GradeReducer, BoardReducer, VillageReducer, ContactReducer, DataReducer } from './store/reducers/root.reducer';
 import { rootEffects } from './store/effects/root.effects';
 
 
@@ -43,6 +43,7 @@ import { rootEffects } from './store/effects/root.effects';
       village : VillageReducer,
       board : BoardReducer,
       contact : ContactReducer,
+      data : DataReducer,
     }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([SlipEffects,rootEffects]),

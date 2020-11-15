@@ -17,8 +17,8 @@
                 <mat-form-field class="tbgrno" appearance="fill">
                   <mat-label>TBGR NO</mat-label>
                   <mat-select [(ngModel)]="selectedtbgr" name="food" required>
-                    <mat-option *ngFor="let tbgr of Tbgrs" [value]="tbgr.tbgrno">
-                      {{tbgr.tbgrno}}
+                    <mat-option *ngFor="let tbgr of Tbgrs" [value]="tbgr.tbgr">
+                      {{tbgr.tbgr}}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -47,30 +47,38 @@
             <ion-card-title>Data</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-item>
-              <ion-label position="floating">Items Sold</ion-label>
-              <ion-input #weight type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Total Weight(Kg)</ion-label>
-              <ion-input #weight type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Sold Weight(Kg)</ion-label>
-              <ion-input #weight type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Remaining Weight(Kg)</ion-label>
-              <ion-input #weight type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Avg Price(Rupee)/Item</ion-label>
-              <ion-input #price type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Avg Weight(Kg)/Item</ion-label>
-              <ion-input #weight type="text"></ion-input>
-            </ion-item>
+
+            <ion-grid *ngFor = "let data of Data">
+              <ion-item>
+                <ion-label>Items Sold</ion-label>
+                {{data.slipcount}}
+              </ion-item>
+              <ion-item>
+                <ion-label>Total Weight(Kg)</ion-label>
+                {{totalweight}}
+              </ion-item>
+              <ion-item>
+                <ion-label>Sold Weight(Kg)</ion-label>
+                {{data.totalweight}}
+              </ion-item>
+              <ion-item>
+                <ion-label>Remaining Weight(Kg)</ion-label>
+                {{totalweight-data.totalweight}}
+              </ion-item>
+              <ion-item>
+                <ion-label>Avg Price(Rupee)/Item</ion-label>
+                {{data.priceavg}}
+              </ion-item>
+              <ion-item>
+                <ion-label>Avg Weight(Kg)/Item</ion-label>
+                {{data.weightavg}}
+              </ion-item>
+              <ion-item>
+                <ion-label>Avg Weight(Kg)/Item</ion-label>
+                {{data.costavg}}
+              </ion-item>
+            </ion-grid>
+
           </ion-card-content>
         </ion-card>
       </ion-col>

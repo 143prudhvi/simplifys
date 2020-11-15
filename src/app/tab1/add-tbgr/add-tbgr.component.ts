@@ -15,7 +15,7 @@ import { Village } from 'src/app/store/models/village.model';
 })
 export class AddTbgrComponent implements OnInit {
 
-  newTbgr : Tbgr = { board: "", village:"", tbgrno:"", name:"" }
+  newTbgr : Tbgr = { board: "", village:"", tbgr:null, name:"" }
   Boards$: Observable<Array<Board>>;
   Boards:Array<Board>
   Villages$: Observable<Array<Village>>;
@@ -41,14 +41,11 @@ export class AddTbgrComponent implements OnInit {
   }
 
   OnRemove(){
-    this.newTbgr.tbgrno=""
-    this.newTbgr.village=""
-    this.newTbgr.name=""
-    this.newTbgr.board=""
+    this.newTbgr={board: "", village:"", tbgr:null, name:"" };
   }
 
   addTbgrStore(){
     this.slipstore.dispatch(new AddTbgrAction(this.newTbgr));
-    this.newTbgr={board: "", village:"", tbgrno:"", name:"" };
+    this.newTbgr={board: "", village:"", tbgr:null, name:"" };
   }
 }

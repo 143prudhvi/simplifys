@@ -2,7 +2,7 @@
   <ion-row>
     <ion-col size-md="6" offset-md="3">
       <ion-card>
-        <ion-card-header>
+        <ion-card-header color="primary">
           <ion-card-title>Tobacco Card</ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -14,9 +14,9 @@
             <div>
               <mat-form-field class="tbgrno" appearance="fill">
                 <mat-label>TBGR NO</mat-label>
-                <mat-select [(ngModel)]="newSlip.tbgrno" name="tbgr">
-                  <mat-option *ngFor="let tbgr of Tbgrs" [value]="tbgr.tbgrno">
-                    {{tbgr.tbgrno}}
+                <mat-select [(ngModel)]="newSlip.tbgr" name="Tbgr">
+                  <mat-option *ngFor="let Tbgr of Tbgrs" [value]="Tbgr.tbgr">
+                    {{Tbgr.tbgr}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -44,15 +44,15 @@
           </ion-item> -->
           <ion-item>
             <ion-label position="floating">LOT NO.</ion-label>
-            <ion-input  type="text" [(ngModel)]="newSlip.lotno"></ion-input>
+            <ion-input  type="text" [(ngModel)]="newSlip.lotno" required></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Enter Weight(Kg)</ion-label>
-            <ion-input type="text" [(ngModel)]="newSlip.weight"></ion-input>
+            <ion-input type="text" [(ngModel)]="newSlip.weight" required></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Enter Price(Rupee)</ion-label>
-            <ion-input  type="text" [(ngModel)]="newSlip.price"></ion-input>
+            <ion-input  type="text" [(ngModel)]="newSlip.price" required></ion-input>
           </ion-item>
           <div class="buttons">
             <ion-button fill="outline" color="danger" (click)="OnSlipClear()">

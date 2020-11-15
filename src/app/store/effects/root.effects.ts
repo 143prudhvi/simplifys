@@ -6,7 +6,7 @@ import { SharedService } from 'src/app/shared.service';
 import {LoadBoardAction, LoadBoardFailureAction, LoadBoardSuccessAction, BoardActionTypes, 
     LoadVillageAction, LoadVillageFailureAction, LoadVillageSuccessAction, VillageActionTypes,
     LoadContactAction, LoadContactFailureAction, LoadContactSuccessAction, ContactActionTypes,
-    LoadGradeAction, LoadGradeFailureAction, LoadGradeSuccessAction, GradeActionTypes, AddContactAction, AddContactSuccessAction, AddContactFailureAction, DeleteContactAction, DeleteContactSuccessAction, DeleteContactFailureAction, UpdateContactAction, UpdateContactSuccessAction, UpdateContactFailureAction } from '../actions/root.actions';
+    LoadGradeAction, LoadGradeFailureAction, LoadGradeSuccessAction, GradeActionTypes, AddContactAction, AddContactSuccessAction, AddContactFailureAction, DeleteContactAction, DeleteContactSuccessAction, DeleteContactFailureAction, UpdateContactAction, UpdateContactSuccessAction, UpdateContactFailureAction, LoadDataAction, DataActionTypes, LoadDataSuccessAction, LoadDataFailureAction } from '../actions/root.actions';
 
 @Injectable()
 export class rootEffects{
@@ -91,6 +91,18 @@ export class rootEffects{
             .pipe(
                 map(() => new DeleteContactSuccessAction(data.payload)),
                 catchError(error => of(new DeleteContactFailureAction(error))),
+            )
+        )
+    )
+
+    @Effect() loadData$ = this.actions
+    .pipe(
+        ofType<LoadDataAction>(DataActionTypes.LOAD_DATA),
+        mergeMap(
+            () => this.service.getData ()
+            .pipe(
+                map((data:any) => new LoadDataSuccessAction(data)),
+                catchError(error => of(new LoadDataFailureAction(error))),
             )
         )
     )

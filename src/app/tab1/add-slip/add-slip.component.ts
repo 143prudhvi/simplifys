@@ -15,7 +15,7 @@ import { Grade } from 'src/app/store/models/grade.model';
 })
 export class AddSlipComponent implements OnInit {
 
-  newSlip : Slip = {date:"", tbgrno:"",grade:"",lotno:"",weight:null,price:null }
+  newSlip : Slip = {date:"", tbgr:null,grade:"",lotno:null,weight:null,price:null }
   Grades$: Observable<Array<Grade>>;
   Tbgrs$: Observable<Array<Tbgr>>;
   Grades:Array<Grade>
@@ -44,15 +44,15 @@ export class AddSlipComponent implements OnInit {
   }
 
   OnSlipClear(){
-    this.newSlip.tbgrno=""
+    this.newSlip.tbgr=null
     this.newSlip.price=null
     this.newSlip.weight=null
-    this.newSlip.lotno=""
+    this.newSlip.lotno=null
     this.newSlip.grade=""
   }
   
   addSlip(){
     this.slipstore.dispatch(new AddSlipAction(this.newSlip));
-    this.newSlip = {date:"", tbgrno:"",grade:"",lotno:"",weight:null,price:null };
+    this.newSlip = {date:"", tbgr:null,grade:"",lotno:null,weight:null,price:null };
   }
 }

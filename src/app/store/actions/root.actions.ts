@@ -2,6 +2,7 @@ import { Action } from '@ngrx/store';
 import { Board , Contact} from '../models/board.model'; 
 import { Village } from '../models/village.model';
 import { Grade } from '../models/grade.model'; 
+import { Data } from '@angular/router';
 
 export enum BoardActionTypes{
     LOAD_BOARD = '[BOARD] Load Board',
@@ -180,3 +181,29 @@ export type ContactAction = LoadContactAction
 |DeleteContactAction 
 |DeleteContactSuccessAction 
 |DeleteContactFailureAction;
+
+export enum DataActionTypes{
+    LOAD_DATA = '[DATA] Load Data',
+    LOAD_DATA_SUCCESS = '[DATA] Load Data Success',
+    LOAD_DATA_FAILURE = '[DATA] Load Data Failure',
+}
+
+export class LoadDataAction implements Action{
+    readonly type = DataActionTypes.LOAD_DATA;
+}
+
+export class LoadDataSuccessAction implements Action{
+    readonly type = DataActionTypes.LOAD_DATA_SUCCESS;
+
+    constructor(public payload: Array<Data>){}
+}
+
+export class LoadDataFailureAction implements Action{
+    readonly type = DataActionTypes.LOAD_DATA_FAILURE;
+
+    constructor(public payload:Error){}
+}
+
+export type DataAction = LoadDataAction 
+|LoadDataSuccessAction 
+|LoadDataFailureAction;

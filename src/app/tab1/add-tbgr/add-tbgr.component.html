@@ -2,7 +2,7 @@
   <ion-row>
     <ion-col size-md="6" offset-md="3">
       <ion-card>
-        <ion-card-header>
+        <ion-card-header color="primary">
           <ion-card-title>Add TBGR</ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -15,8 +15,8 @@
               <mat-form-field class="board" appearance="fill">
                 <mat-label>Division</mat-label>
                 <mat-select [(ngModel)]="newTbgr.board" name="board">
-                  <mat-option *ngFor="let board of Boards" [value]="board.boardname">
-                    {{board.boardname}}
+                  <mat-option *ngFor="let board of Boards" [value]="board.board">
+                    {{board.board}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -31,8 +31,8 @@
               <mat-form-field class="village" appearance="fill">
                 <mat-label>Village/Town</mat-label>
                 <mat-select [(ngModel)]="newTbgr.village" name="village">
-                  <mat-option *ngFor="let village of Villages"  [value]="village.villagename">
-                    {{village.villagename}}
+                  <mat-option *ngFor="let village of Villages"  [value]="village.village">
+                    {{village.village}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -40,7 +40,7 @@
           </ion-item>
           <ion-item>
             <ion-label position="floating">Tbgr No</ion-label>
-            <ion-input type="text" [(ngModel)]="newTbgr.tbgrno"></ion-input>
+            <ion-input type="text" [(ngModel)]="newTbgr.tbgr"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Grower Name</ion-label>

@@ -1,4 +1,4 @@
 export interface Grade{
-    gradeid:string,
+    id:number,
     grade:string
 }

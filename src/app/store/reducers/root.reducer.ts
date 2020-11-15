@@ -1,7 +1,8 @@
-import { BoardAction, BoardActionTypes, VillageAction, VillageActionTypes, GradeAction, GradeActionTypes, ContactAction, ContactActionTypes } from '../actions/root.actions';
+import { BoardAction, BoardActionTypes, VillageAction, VillageActionTypes, GradeAction, GradeActionTypes, ContactAction, ContactActionTypes, DataAction, DataActionTypes } from '../actions/root.actions';
 import { Board, Contact } from "../models/board.model";
 import { Village } from "../models/village.model";
 import { Grade } from "../models/grade.model";
+import { Data } from '@angular/router';
 
 export interface BoardState{
     list: Board[],
@@ -21,6 +22,16 @@ export interface VillageState{
 export interface GradeState{
     list: Grade[],
     error: Error
+}
+
+export interface DataState{
+    list: Data[],
+    error: Error
+}
+
+const initialdataState : DataState = {
+    list: [],
+    error : undefined
 }
 
 const initialgradeState : GradeState = {
@@ -129,5 +140,21 @@ export function ContactReducer(
             return {...contactstate,error : contactaction.payload}
         default:
             return contactstate;
+    }
+}
+
+export function DataReducer(
+    datastate : DataState = initialdataState,
+    dataaction:DataAction,
+    ){
+    switch(dataaction.type){
+        case DataActionTypes.LOAD_DATA:
+            return {...datastate}
+        case DataActionTypes.LOAD_DATA_SUCCESS:
+            return {...datastate,list : dataaction.payload}
+        case DataActionTypes.LOAD_DATA_FAILURE:
+            return {...datastate,error : dataaction.payload}
+        default:
+            return datastate;
     }
 }

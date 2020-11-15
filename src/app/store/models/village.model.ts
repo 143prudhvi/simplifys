@@ -1,5 +1,5 @@
 export interface Village{
-    boardname:string,
-    villageid:string,
-    villagename:string
+    id:number,
+    board:string,
+    village:string
 }
